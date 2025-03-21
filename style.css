@@ -1,0 +1,1192 @@
+/* Move import to top of file */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/* Base styles */
+body {
+    background-color: #0f1319;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 40%);
+    color: #ffffff;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 3rem 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f1319;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 40%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.initial-content {
+    text-align: center;
+    background-color: rgba(26, 32, 44, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+}
+
+/* NPM Loader */
+.npm-loader {
+    margin-top: 2rem;
+    display: none; /* Initially hidden, shown after typing */
+}
+
+.npm-box {
+    width: 20px;
+    height: 20px;
+    background-color: #c3dafe;
+    border-radius: 2px;
+    margin: 0 auto;
+    animation: npmLoader 1.2s ease-in-out infinite;
+    position: relative;
+}
+
+.npm-box::before,
+.npm-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #c3dafe;
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+.npm-box::before {
+    left: -30px;
+    animation: npmLoaderPre 1.2s ease-in-out infinite;
+}
+
+.npm-box::after {
+    right: -30px;
+    animation: npmLoaderPost 1.2s ease-in-out infinite;
+}
+
+@keyframes npmLoader {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes npmLoaderPre {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-15px); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes npmLoaderPost {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, monospace;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', monospace;
+}
+
+.subtitle {
+    color: #9ca3af;
+    margin-top: 0;
+    font-size: 1.1rem;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', monospace;
+    letter-spacing: -0.5px;
+}
+
+/* Typing animation */
+.typing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.typing-text {
+    margin-right: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    visibility: hidden;
+    animation: typing 2s steps(20, end) forwards;
+    animation-delay: 0.5s;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #c3dafe;
+    margin-bottom: -4px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation */
+nav {
+    margin: 2.5rem 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(26, 32, 44, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+nav ul li {
+    margin: 0.8rem 0;
+}
+
+nav ul li a.nav-toggle {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    display: block;
+    position: relative;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+}
+
+nav ul li a.nav-toggle.active {
+    color: var(--nav-hover);
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+nav ul li a:hover {
+    color: var(--nav-hover);
+}
+
+/* Collapsible Sections */
+.section {
+    margin-bottom: 3rem;
+    max-height: 2000px;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+    overflow: hidden;
+}
+
+.section.collapsed {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease, visibility 0.2s, margin 0.5s ease;
+}
+
+/* Experience */
+.experience-item {
+    margin-bottom: 30px;
+}
+
+.job-title {
+    font-weight: 600;
+    margin: 10px 0 5px;
+}
+
+.job-duration {
+    color: #a0aec0;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.responsibilities li {
+    margin-bottom: 5px;
+}
+
+.function {
+    color: #ff79c6;
+}
+
+.exp-title {
+    color: #bd93f9;
+}
+
+.param {
+    color: #ffb86c;
+}
+
+.return {
+    color: #ff79c6;
+}
+
+.string {
+    color: #f1fa8c;
+}
+
+.company {
+    color: #9ca3af;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.period {
+    color: #6b7280;
+    margin: 0.2rem 0 1rem;
+    font-size: 0.9rem;
+}
+
+.responsibilities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.responsibilities li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #e2e8f0;
+}
+
+.responsibilities li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6b7280;
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: rgba(26, 32, 44, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    border-color: rgba(195, 218, 254, 0.2);
+}
+
+.tech-stack {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-stack span {
+    background-color: #2d3748;
+    color: #9ca3af;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    letter-spacing: -0.5px;
+}
+
+.project-link {
+    color: #c3dafe;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.project-link i {
+    font-size: 0.8rem;
+}
+
+/* Blog */
+.blog-post {
+    margin-bottom: 2rem;
+    background-color: rgba(26, 32, 44, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(195, 218, 254, 0.15);
+}
+
+.date {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0.2rem 0 1rem;
+}
+
+.read-more {
+    color: #c3dafe;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 2px;
+}
+
+.read-more:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.read-more:hover:after {
+    width: 100%;
+}
+
+.read-more i {
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(4px);
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    color: var(--text-color);
+    background-color: rgba(99, 102, 241, 0.2);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.view-all-link:hover {
+    background-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.view-all-link i {
+    transition: transform 0.3s ease;
+}
+
+.view-all-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Contact */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    background-color: rgba(26, 32, 44, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.social-link:hover {
+    color: #c3dafe;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(195, 218, 254, 0.15);
+}
+
+.social-link i {
+    font-size: 1.25rem;
+}
+
+.contact-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Skills */
+.skills-container {
+    margin-top: 2rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.skill-category {
+    background-color: rgba(26, 32, 44, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    border-color: rgba(195, 218, 254, 0.15);
+}
+
+.skill-category h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #c3dafe;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #e2e8f0;
+}
+
+.skill-category li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6b7280;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Terminal-like elements */
+.terminal-like {
+    background-color: #1e1e1e;
+    border: 1px solid #8a8a8a;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    padding-top: 35px; /* Space for the header */
+}
+
+.terminal-like::before {
+    content: ">";
+    color: #4fd1c5;
+    font-weight: bold;
+    position: relative;
+    margin-right: 4px;
+}
+
+/* Terminal header */
+.terminal-like::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #8a8a8a;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+/* Terminal controls */
+.terminal-like::after {
+    content: "● ● ●";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #8a8a8a;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 12px;
+    color: #8a8a8a;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background-color: #4fd1c5;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+/* Enhance code styling */
+code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Source Code Pro', monospace;
+    font-weight: inherit;
+    color: inherit;
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+}
+
+h1 code, h2 code, h3 code, h4 code {
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+h1 code::before {
+    content: '# ';
+    color: rgba(99, 102, 241, 0.7);
+    font-weight: normal;
+}
+
+h2 code::before {
+    content: '## ';
+    color: rgba(99, 102, 241, 0.7);
+    font-weight: normal;
+}
+
+h3 code::before {
+    content: '### ';
+    color: rgba(99, 102, 241, 0.7);
+    font-weight: normal;
+}
+
+.nav-toggle code {
+    transition: color 0.3s ease;
+}
+
+.nav-toggle.active code {
+    color: #c3dafe;
+}
+
+/* Add coding font style to list items */
+.skill-category li,
+.responsibilities li,
+.project-card ul li {
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    letter-spacing: -0.5px;
+}
+
+.skill-category li:before,
+.responsibilities li:before,
+.project-card ul li:before {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Enhance social links to look like code links */
+.social-link {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    letter-spacing: -0.5px;
+}
+
+.social-link::before {
+    content: '> ';
+    color: #c3dafe;
+    font-weight: bold;
+}
+
+/* Contact section terminal code styling */
+.contact-var {
+    color: #79c0ff;
+}
+
+.property {
+    color: #ffa657;
+    margin-left: 20px;
+}
+
+.value {
+    color: #a5d6ff;
+}
+
+.terminal-like code {
+    color: #c3dafe;
+    background: transparent;
+    padding: 0;
+}
+
+.terminal-like::after {
+    content: "|";
+    color: #4fd1c5;
+    animation: blink 1s infinite;
+    position: relative;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Fix the terminal cursor animation */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background-color: #4fd1c5;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+/* Projects section scrollbar */
+#projects .project-grid {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar styling */
+#projects .project-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+#projects .project-grid::-webkit-scrollbar-track {
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 4px;
+}
+
+#projects .project-grid::-webkit-scrollbar-thumb {
+    background-color: #4fd1c5;
+    border-radius: 4px;
+    border: 2px solid rgba(30, 30, 30, 0.5);
+}
+
+#projects .project-grid::-webkit-scrollbar-thumb:hover {
+    background-color: #38b2ac;
+}
+
+/* Terminal name color - green */
+h1 code {
+    color: #50fa7b;
+}
+
+/* Light and Dark mode classes */
+:root {
+    --bg-color: #0f1319;
+    --bg-gradient-1: rgba(99, 102, 241, 0.15);
+    --bg-gradient-2: rgba(79, 70, 229, 0.1);
+    --card-bg: rgba(26, 32, 44, 0.7);
+    --text-color: #ffffff;
+    --subtitle-color: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --primary-color: #c3dafe;
+    --secondary-color: #4fd1c5;
+    --terminal-bg: #1e1e1e;
+    --terminal-header: #2d2d2d;
+    --terminal-border: #8a8a8a;
+    --terminal-text: #e0e0e0;
+    --code-color: #50fa7b;
+    --nav-text: #ffffff;
+    --nav-hover: #c3dafe;
+}
+
+body.light-mode {
+    --bg-color: #f7f7f7;
+    --bg-gradient-1: rgba(99, 102, 241, 0.05);
+    --bg-gradient-2: rgba(79, 70, 229, 0.05);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-color: #1a202c;
+    --subtitle-color: #4a5568;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --primary-color: #4338ca;
+    --secondary-color: #0d9488;
+    --terminal-bg: #f0f0f0;
+    --terminal-header: #e0e0e0;
+    --terminal-border: #a0a0a0;
+    --terminal-text: #1a202c;
+    --code-color: #047857;
+    --nav-text: #1a202c;
+    --nav-hover: #4338ca;
+}
+
+/* Apply CSS variables */
+body {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, var(--bg-gradient-1) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, var(--bg-gradient-2) 0%, transparent 40%);
+    color: var(--text-color);
+}
+
+#loading-screen {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, var(--bg-gradient-1) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, var(--bg-gradient-2) 0%, transparent 40%);
+}
+
+h1 code {
+    color: var(--code-color);
+}
+
+.subtitle {
+    color: var(--subtitle-color);
+}
+
+.initial-content, nav ul, .project-card, .blog-post, .social-link, .skill-category {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.terminal-like {
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--terminal-border);
+    color: var(--terminal-text);
+}
+
+.terminal-like::after {
+    background-color: var(--terminal-header);
+    border-bottom: 1px solid var(--terminal-border);
+}
+
+/* Toggle switch for theme */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: var(--card-bg);
+    opacity: 0.9;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2d3748;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--secondary-color);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+    background-color: #1a202c;
+}
+
+/* Add moon and sun icons for light/dark mode */
+body.light-mode .slider:before {
+    content: "☀️";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #1a202c;
+    line-height: 1;
+}
+
+body:not(.light-mode) .slider:before {
+    content: "🌙";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #f0f0f0;
+    line-height: 1;
+}
+
+/* Fix for nav code elements in light mode */
+body.light-mode nav ul li a.nav-toggle code {
+    color: var(--nav-text);
+}
+
+body.light-mode nav ul li a.nav-toggle:hover code,
+body.light-mode nav ul li a.nav-toggle.active code {
+    color: var(--nav-hover);
+}
+
+/* Apply CSS variables to all text elements */
+
+/* Text colors */
+p, li, .date, .job-duration, .period {
+    color: var(--text-color);
+}
+
+/* Link colors */
+.project-link, .read-more, .view-all-link {
+    color: var(--primary-color);
+}
+
+.project-link:hover, .read-more:hover, .view-all-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Social links */
+.social-link {
+    color: var(--text-color);
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}
+
+.social-link::before {
+    color: var(--primary-color);
+}
+
+/* Tech stack */
+.tech-stack span {
+    background-color: rgba(45, 55, 72, 0.3);
+    color: var(--subtitle-color);
+}
+
+body.light-mode .tech-stack span {
+    background-color: rgba(226, 232, 240, 0.7);
+    color: var(--text-color);
+}
+
+/* Skill category */
+.skill-category h4 {
+    color: var(--primary-color);
+}
+
+.skill-category li, .responsibilities li, .project-card ul li {
+    color: var(--text-color);
+}
+
+.skill-category li:before, .responsibilities li:before, .project-card ul li:before {
+    color: var(--subtitle-color);
+}
+
+/* Terminal elements in light mode */
+body.light-mode .terminal-like code {
+    color: var(--primary-color);
+}
+
+body.light-mode .function {
+    color: #9333ea;
+}
+
+body.light-mode .exp-title {
+    color: #4f46e5;
+}
+
+body.light-mode .param {
+    color: #b45309;
+}
+
+body.light-mode .return {
+    color: #9333ea;
+}
+
+body.light-mode .string {
+    color: #047857;
+}
+
+body.light-mode .contact-var {
+    color: #3b82f6;
+}
+
+body.light-mode .property {
+    color: #d97706;
+}
+
+body.light-mode .value {
+    color: #0369a1;
+}
+
+/* Fix heading markdown style in light mode */
+body.light-mode h1 code::before,
+body.light-mode h2 code::before,
+body.light-mode h3 code::before {
+    color: rgba(79, 70, 229, 0.7);
+}
+
+/* Fix read more underline color */
+.read-more:after {
+    background-color: var(--primary-color);
+}
+
+/* Fix view all link colors */
+.view-all-link {
+    background-color: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--text-color);
+}
+
+body.light-mode .view-all-link {
+    background-color: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.view-all-link:hover {
+    background-color: rgba(99, 102, 241, 0.3);
+}
+
+body.light-mode .view-all-link:hover {
+    background-color: rgba(99, 102, 241, 0.2);
+}
+
+/* Fix cursor glow color in light mode */
+body.light-mode .cursor-glow {
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.1), transparent 70%);
+}
+
+/* Fix active navigation background in light mode */
+body.light-mode nav ul li a.nav-toggle.active {
+    background-color: rgba(79, 70, 229, 0.1);
+}
+
+/* Fix typing cursor colors */
+body.light-mode .typing-cursor {
+    background-color: var(--secondary-color);
+}
+
+/* Make sure the job title and duration have proper contrast */
+body.light-mode .job-title {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+body.light-mode .job-duration {
+    color: var(--subtitle-color);
+}
+
+/* Ensure proper text contrast in light mode */
+body.light-mode .responsibilities li {
+    color: var(--text-color);
+}
+
+/* Fix the contrast in project descriptions */
+body.light-mode .project-card p {
+    color: var(--text-color);
+}
+
+/* Better styling for terminal controls in light mode */
+body.light-mode .terminal-like::after {
+    color: #6b7280;
+}
+
+/* Better styling for cursor blink in light mode */
+body.light-mode .cursor {
+    background-color: var(--secondary-color);
+}
+
+/* Better styling for section headings */
+.section h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Improve blog post appearance in light mode */
+body.light-mode .blog-post .date {
+    color: var(--subtitle-color);
+}
+
+/* Fix theme toggle button text color */
+.theme-toggle span {
+    color: var(--text-color);
+}
+
+/* Fix tech stack colors */
+body.light-mode .tech-stack span {
+    color: var(--subtitle-color);
+    background-color: rgba(226, 232, 240, 0.7);
+}
+
+
