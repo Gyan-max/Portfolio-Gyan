@@ -1189,4 +1189,22 @@ body.light-mode .tech-stack span {
     background-color: rgba(226, 232, 240, 0.7);
 }
 
+/* PR links styling */
+.pr-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-radius: 4px;
+    padding: 2px 6px;
+    transition: all 0.2s ease;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-weight: 500;
+}
+
+.pr-link:hover {
+    background-color: rgba(99, 102, 241, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 
