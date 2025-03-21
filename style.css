@@ -4,9 +4,6 @@
 /* Base styles */
 body {
     background-color: #0f1319;
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 40%);
     color: #ffffff;
     font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, 'Courier New', monospace;
     margin: 0;
@@ -16,12 +13,33 @@ body {
     display: flex;
     justify-content: center;
     overflow-x: hidden;
+    position: relative; /* Added for absolute positioning of threejs container */
 }
 
+/* Three.js container styles */
+#threejs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Enhanced container with glass effect */
 .container {
     max-width: 800px;
     width: 100%;
     padding: 3rem 2rem;
+    background-color: rgba(15, 19, 25, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .hidden {
@@ -346,19 +364,38 @@ nav ul li a:hover {
 
 .project-card {
     background-color: rgba(26, 32, 44, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 1.75rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    will-change: transform; /* Optimize for animations */
+    cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    border-color: rgba(195, 218, 254, 0.2);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.project-card h3 {
+    transform: translateZ(20px); /* Create depth for 3D effect */
+}
+
+.project-card p {
+    transform: translateZ(15px); /* Create depth for 3D effect */
+}
+
+.tech-stack {
+    transform: translateZ(10px); /* Create depth for 3D effect */
+}
+
+.project-link {
+    transform: translateZ(25px); /* Create depth for 3D effect */
 }
 
 .tech-stack {
@@ -859,17 +896,11 @@ body.light-mode {
 /* Apply CSS variables */
 body {
     background-color: var(--bg-color);
-    background-image: 
-        radial-gradient(circle at 10% 20%, var(--bg-gradient-1) 0%, transparent 30%),
-        radial-gradient(circle at 90% 80%, var(--bg-gradient-2) 0%, transparent 40%);
     color: var(--text-color);
 }
 
 #loading-screen {
     background-color: var(--bg-color);
-    background-image: 
-        radial-gradient(circle at 10% 20%, var(--bg-gradient-1) 0%, transparent 30%),
-        radial-gradient(circle at 90% 80%, var(--bg-gradient-2) 0%, transparent 40%);
 }
 
 h1 code {

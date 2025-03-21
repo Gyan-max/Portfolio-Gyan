@@ -6,8 +6,18 @@
     <title>Portfolio | Gyan Ranjan</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Three.js post-processing libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
 </head>
 <body>
+    <!-- Three.js canvas element -->
+    <div id="threejs-container"></div>
+    
     <div class="theme-toggle">
         <span>Dark Mode</span>
         <label class="switch">
@@ -53,7 +63,7 @@
                         
                         <div class="skills-container">
                             <h3><code>Skills & Expertise</code></h3>
-                            <div class="skills-grid">
+                            <!-- <div class="skills-grid"> -->
                                 <div class="skill-category">
                                     <h4><code>Programming</code></h4>
                                     <ul>
@@ -86,7 +96,7 @@
                                         <li>Reading books and playing chess</li>
                                     </ul>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </section>
                 </li>
@@ -138,9 +148,9 @@
                                 <p>Password Cracker is an educational tool designed to demonstrate password security concepts and vulnerability testing techniques. This python based application features:
                                     <ul>
                                         <li>Multiple attack methods, including brute force and dictionary based approaches</li>
-                                        <li>Support for cracking various hash types (MD5, SHA-1, SHA-256, SHA-512)<./li>
-                                        <li>Real-time progress tracking with a responsive GUI build in Tkinter.</li>
-                                        <li>Comprehensive documentation and testing tools,</li>
+                                        <li>Support for cracking various hash types (MD5, SHA-1, SHA-256, SHA-512)</li>
+                                        <li>Real-time progress tracking with a responsive GUI build in Tkinter</li>
+                                        <li>Comprehensive documentation and testing tools</li>
                                     </ul>
                                 </p>
                                 <p>This project was created purley for educational purposes to help understanding the concepts of password security and vulnerability testing.</p>
