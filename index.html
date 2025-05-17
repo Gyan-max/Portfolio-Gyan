@@ -51,12 +51,17 @@
                     <a href="#about" class="nav-toggle"><code>- About</code></a>
                     <section id="about" class="section collapsed">
                         <h2><code>About</code></h2>
-                        <div class="terminal-like">
-                            Hello! I'm <code>Gyan</code>, a Computer Science student at <code>IIT Patna</code> with a passion for AI and quantum computing.
+                        <div class="profile-container">
+                            <img src="img.jpeg" alt="Gyan Ranjan" class="profile-image">
+                            <div class="profile-text">
+                                <div class="terminal-like">
+                                    Hello! I'm <code>Gyan</code>, a Computer Science student at <code>IIT Patna</code> with a passion for AI and quantum computing.
+                                </div>
+                                
+                                <p>I thrive on building innovative projects, learning new technologies, and exploring the intersection of AI and quantum computing.
+                                I actively contribute to open-source projects and am currently exploring <code>Rust</code>, <code>quantum computing</code>, and <code>competitive programming</code>.</p>
+                            </div>
                         </div>
-                        
-                        <p>I thrive on building innovative projects, learning new technologies, and exploring the intersection of AI and quantum computing.
-                           I actively contribute to open-source projects and am currently exploring <code>Rust</code>, <code>quantum computing</code>, and <code>competitive programming</code>.</p>
                         
                         <p>With a strong foundation in <code>React</code>, <code>Python</code>, <code>C++</code>, <code>web development</code>, and a keen interest in <code>AI</code> and <code>quantum computing</code>, I am dedicated to pushing the boundaries of technology and creating impactful solutions.</p>
 
@@ -108,17 +113,35 @@
                         <div class="experience-item">
                             <div class="terminal-like">
                                 <code class="function">function</code> <code class="exp-title">OpenSourceContributor</code>(<code class="param">project</code>) {
+                                    <code class="return">return</code> <code class="string">"St. Jude's WDL"</code>;
+                                }
+                            </div>
+                            <p class="job-title">Open Source Contributor at St. Jude's WDL</p>
+                            <p class="job-duration">Ongoing</p>
+                            <ul class="responsibilities">
+                                <li>Contributed <code>four significant pull requests</code> to the Workflow Description Language (WDL) project at St. Jude's Research Hospital:</li>
+                                <li>PR <a href="#" target="_blank" class="pr-link">#343</a>: Developed a Rust-based linting rule to prevent redundant variable naming, improving code efficiency and readability</li>
+                                <li>PR <a href="#" target="_blank" class="pr-link">#352</a>: Added YAML support to wdl-engine, expanding compatibility with modern workflow configurations</li>
+                                <li>PR <a href="#" target="_blank" class="pr-link">#373</a>: Created DEFINATIONS.md to centralize WDL documentation, making it more accessible for new contributors</li>
+                                <li>PR <a href="#" target="_blank" class="pr-link">#391</a>: Fixed cross-platform diagnostic message handling in gauntlet, improving error reporting consistency across operating systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="terminal-like">
+                                <code class="function">function</code> <code class="exp-title">OpenSourceContributor</code>(<code class="param">project</code>) {
                                     <code class="return">return</code> <code class="string">"Qiskit"</code>;
                                 }
                             </div>
                             <p class="job-title">Open Source Contributor at Qiskit</p>
                             <p class="job-duration">Ongoing</p>
                             <ul class="responsibilities">
-                                <li>Successfully merged <code>two pull requests</code> into <code>Qiskit</code>, IBM's open-source quantum computing framework:</li>
-                                <li>PR <a href="https://github.com/Qiskit/documentation/pull/2797" target="_blank" class="pr-link">#2797</a>: Updated import statements for <code>generate_preset_pass_manager</code> throughout the codebase</li>
-                                <li>PR <a href="https://github.com/Qiskit/documentation/pull/2698" target="_blank" class="pr-link">#2698</a>: Contributed to documentation improvements</li>
-                                <li>Collaborated with the international quantum computing community to improve documentation and features</li>
-                                <li>Implemented enhancements following project standards and best practices</li>
+                                <li>Successfully merged <code>multiple pull requests</code> into <code>Qiskit</code>, IBM's open-source quantum computing framework:</li>
+                                <li>PR <a href="https://github.com/Qiskit/documentation/pull/2797" target="_blank" class="pr-link">#2797</a>: Updated import statements for <code>general_preset_pass_manager</code> function following the 1.3.3 release</li>
+                                <li>PR <a href="https://github.com/Qiskit/documentation/pull/2698" target="_blank" class="pr-link">#2698</a>: Removed REPL ( >>> ) from code examples to improve documentation readability</li>
+                                <li>PR <a href="https://github.com/Qiskit/documentation/pull/2939" target="_blank" class="pr-link">#2939</a>: Organized guide images in the documentation repository for better structure</li>
+                                <!-- <li>Collaborated with the international quantum computing community to improve documentation and features</li>
+                                <li>Implemented enhancements following project standards and best practices</li> -->
                             </ul>
                         </div>
                     </section>
@@ -216,35 +239,25 @@
 
                                 </div>
                             </div>
+                            <div class="project-card">
+                                <h3><code>MCP Server for Blender Automation</code> <span style="font-size: 0.8em; color: #64ffda; margin-left: 8px;">(In Progress)</span></h3>
+                                <p>A server application that automates Blender workflows using MCP (Model Context Protocol). This project:</p>
+                                <ul>
+                                    <li>Streamlines repetitive Blender tasks through automation</li>
+                                    <li>Provides API endpoints for controlling Blender functions remotely</li>
+                                    <li>Reduces rendering time by optimizing workflow processes</li>
+                                    <li>Implements a simple HTML frontend with Flask backend architecture</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <!-- <span>Blender API</span> -->
+                                    <span>HTML</span>
+                                    <span>MCP Client</span>
+                                </div>
+                                <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                    </section>
-                </li>
-                <li>
-                    <a href="#blog" class="nav-toggle"><code>- Blog</code></a>
-                    <section id="blog" class="section collapsed">
-                        <h2><code>Blog</code></h2>
-                        <div class="blog-post">
-                            <h3><code>Quantum Computing for AI Researchers</code></h3>
-                            <p class="date">June 15, 2023</p>
-                            <p>Exploring how quantum computing principles can enhance machine learning algorithms and what AI researchers need to know about this emerging field.</p>
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        
-                        <div class="blog-post">
-                            <h3><code>My Journey Learning Rust for Quantum Computing</code></h3>
-                            <p class="date">May 10, 2023</p>
-                            <p>Insights from learning Rust and applying it to quantum computing simulations, with tips for other students entering the field.</p>
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        
-                        <div class="blog-post">
-                            <h3><code>Competitive Programming: Lessons from Quantum Algorithms</code></h3>
-                            <p class="date">April 3, 2023</p>
-                            <p>How understanding quantum algorithms and thinking models has improved my approach to competitive programming challenges.</p>
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        
-                        <a href="#" class="view-all-link">View All Posts <i class="fas fa-arrow-right"></i></a>
                     </section>
                 </li>
                 <li>
